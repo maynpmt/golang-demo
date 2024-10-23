@@ -1,0 +1,13 @@
+version: '3.8'
+name: live-reload-example
+services:
+  api:
+    container_name: api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000  # App Port
+      - 3001:3001  # Gin proxy port (use this to access the app)
+    volumes:
+      - .:/app
